@@ -1,6 +1,6 @@
 {
     "name": "Chrome Extension MV3",
-    "description": "Learning all about Chrome Extensions Manifest Version 3!",
+    "description": "Automate Description Extension for chrome",
     "version": "0.1.0",
     "manifest_version": 3,
     "icons": {
@@ -15,10 +15,10 @@
     "action": {
         "default_popup": "popup.html",
         "default_icon": {
-            "16": "/images/icon-16x16.png",
-            "32": "/images/icon-32x32.png",
-            "48": "/images/icon-48x48.png",
-            "128": "/images/icon-128x128.png"
+            "16": "/images/icon.png",
+            "32": "/images/icon.png",
+            "48": "/images/icon.png",
+            "128": "/images/icon.png"
         }
     },
     "options_page": "options.html",
