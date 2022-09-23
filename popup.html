@@ -1,25 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Description Extension</title>
+    <style>
+        .d-none {
+            display: none;
+        }
+    </style>
 </head>
+
 <body>
 
-    <div>
+    <div class="license-key-container d-none" id="license-key-container">
         <input id="licensekey" type="text" maxlength="23" placeholder="Enter License Key" />
-        
+
         <button id="licensekey-submit-btn">Submit</button>
         <p id="response-message">Message</p>
     </div>
 
-    <textarea name="my-description" id="my-description" cols="30" rows="10"></textarea>
-    <button id="save-description-btn">Save Description</button>
+    <div class="main-container d-none" id="main-container">
+        <textarea name="my-description" id="my-description" cols="30" rows="10"></textarea>
+        <button id="save-description-btn">Save Description</button>
 
-    <h5 id="saved-description">Saved Description</h5>
+        <h5 id="saved-description">Saved Description</h5>
+    </div>
+
 
     <script src="popup.js"></script>
 </body>
+
 </html>

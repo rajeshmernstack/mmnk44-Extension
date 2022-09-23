@@ -1,3 +1,15 @@
+document.getElementById("license-key-container").classList.add('d-none');
+document.getElementById("main-container").classList.add("d-none");
+
+chrome.storage.local.get("licensekey", function (retrieved_data) {
+    if(retrieved_data.licensekey == undefined) {
+        document.getElementById("license-key-container").classList.remove("d-none");
+    }else{
+        document.getElementById("main-container").classList.remove("d-none");
+    }
+    // document.getElementById("saved-description").innerText = retrieved_data.kindledescription;
+});
+
 chrome.storage.local.get("kindledescription", function (retrieved_data) {
     if (retrieved_data.kindledDescription == undefined) {
         document.getElementById("saved-description").innerText = "No Any Saved Description Found";
@@ -7,9 +19,7 @@ chrome.storage.local.get("kindledescription", function (retrieved_data) {
     }
 });
 
-chrome.storage.local.get("licensekey", function (retrieved_data) {
-    document.getElementById("saved-description").innerText = retrieved_data.kindledescription;
-});
+
 
 
 document.getElementById('save-description-btn').addEventListener('click', () => {
@@ -35,7 +45,10 @@ document.getElementById("licensekey-submit-btn").addEventListener('click', () =>
     xhr.send();
     xhr.onload = function () {
         if (xhr.status != 200) { // analyze HTTP status of the response
-            alert(`Error ${xhr.status}: ${xhr.statusText}`); // e.g. 404: Not Found
+            // alert(`Error ${xhr.status}: ${xhr.statusText}`); // e.g. 404: Not Found
+            let myResponse = JSON.parse(xhr.response);
+
+            document.getElementById('response-message').innerText = ""+myResponse.message;
         } else { // show the result
             // alert(`Done, got ${xhr.response.length} bytes`); // response is the server response
             let myResponse = JSON.parse(xhr.response);
@@ -46,6 +59,7 @@ document.getElementById("licensekey-submit-btn").addEventListener('click', () =>
                         licensekey: licensekey
                     }, function () {
                         document.getElementById('response-message').innerText = "License KEY Saved Successfully"
+                        location.reload()
                     });
                 }
             }
@@ -62,7 +76,6 @@ document.getElementById("licensekey-submit-btn").addEventListener('click', () =>
 
     };
     xhr.onerror = function () {
-        alert("Request failed");
         document.getElementById('response-message').innerText = "Error While Validating License Key";
 
     };
