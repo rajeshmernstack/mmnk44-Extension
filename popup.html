@@ -6,27 +6,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Description Extension</title>
-    <style>
-        .d-none {
-            display: none;
-        }
-    </style>
+    <link rel="stylesheet" href="./css/mdb.min.css">
 </head>
 
 <body>
+    <div class="container" id="verify-license-key">
+        <div class="spinner-border text-primary" role="status" style="height: 50px; width: 50px"> 
+          </div>
+          <label for="">Verifying License Key</label>
+    </div>
+    
 
     <div class="license-key-container d-none" id="license-key-container">
         <input id="licensekey" type="text" maxlength="23" placeholder="Enter License Key" />
 
-        <button id="licensekey-submit-btn">Submit</button>
-        <p id="response-message">Message</p>
+        <button type="button" id="licensekey-submit-btn" class="btn btn-primary">Submit</button>
+        <p id="response-message"></p>
     </div>
 
     <div class="main-container d-none" id="main-container">
-        <textarea name="my-description" id="my-description" cols="30" rows="10"></textarea>
-        <button id="save-description-btn">Save Description</button>
+        <textarea name="my-description" class="" id="my-description" cols="30" rows="5" placeholder="Enter Description here to Save"></textarea>
+        <button type="button" id="save-description-btn" class="btn btn-primary">Save Description</button>
+        <div>
 
-        <h5 id="saved-description">Saved Description</h5>
+        <label for="">Saved Description: </label>
+        <h6 id="saved-description">Saved Description</h6>
+        </div>
     </div>
 
 
